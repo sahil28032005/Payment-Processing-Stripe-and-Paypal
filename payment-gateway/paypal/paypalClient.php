@@ -49,9 +49,7 @@ function getPaypalAccessToken()
     curl_close($ch);
 
     // Log response and error message for debugging
-    echo "Response: " . $response . "<br>";  // Log the response from PayPal
-    echo "Status: " . $status . "<br>";      // Log HTTP status code
-    // echo "cURL Error: " . $error_message . "<br>";  // Log cURL error
+    echo "Response: " . $response;
 
     if ($status >= 200 && $status < 300) {
         $data = json_decode($response, true);
