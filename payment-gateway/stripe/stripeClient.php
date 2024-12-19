@@ -5,18 +5,18 @@ function createStripePayment($amount, $currency = 'usd', $description = 'Test Pa
 {
     try {
         // default to test payment method if none is provided
-        $paymentMethod = $paymentMethod ?? 'pm_card_visa';
-
+        // Use a specific test token if none is provided
+        $paymentMethodToken = $paymentMethodToken ?? 'pm_card_mastercard';
         $paymentIntent = \Stripe\PaymentIntent::create([
             'amount' => $amount * 100, // Amount in cents
             'currency' => $currency,
             'description' => $description,
-            'payment_method' => $paymentMethod, // here applied payment method actually
+            'payment_method' => $paymentMethodToken, // here applied payment method actually
             'confirm' => true, // Automatically confirm the payment
             'payment_method_types' => ['card'], // Specify payment method types
             'payment_method_options' => [
                 'card' => [
-                    'request_three_d_secure' => 'automatic', // Enable 3D Secure
+                    // 'request_three_d_secure' => 'automatic', // Enable 3D Secure
                 ],
             ],
             'return_url' => $returnUrl, // Specify the return URL for 3D Secure authentication
