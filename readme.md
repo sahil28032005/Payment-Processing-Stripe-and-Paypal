@@ -119,5 +119,11 @@ You can change this dynamically based on your application requirements.
 - **Server Not Starting**: Confirm your PHP installation and server configuration.
 
 ---
+## Cloning the Repository
+
+To clone this repository, use the following command:
+
+```bash
+git clone https://github.com/sahil28032005/Payment-Processing-Stripe-and-Paypal.git
 
 Happy coding! 🚀
